@@ -4,7 +4,7 @@
   "description": "Dans ce cours, nous allons apprendre à concevoir un back office en utilisant une arcgitecture API REST avec Node.js, Express, MySQL et Sequelize. Nous allons construire un mini-projet de gestion de biliothèque pour illustrer les concepts clés.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
