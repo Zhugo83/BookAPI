@@ -1,7 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const bcrpyt = require('bcryptjs');
-
+const bcrypt = require('bcryptjs');
 
 const User = sequelize.define('User', {
   email: {
@@ -10,16 +9,16 @@ const User = sequelize.define('User', {
     unique: true,
     validate: {
       isEmail: true,
-    },
+    }
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false,
-  },
+    allowNull: false
+  }
 });
 
 User.beforeCreate(async (user) => {
-    const salt = bcrpyt.genSalt(10);
+    const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
 });
 
