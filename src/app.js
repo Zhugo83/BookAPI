@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const bookRoutes = require('./routes/bookRoutes');
 const authorRoutes = require('./routes/authorRoutes');
 const authRoutes = require('./routes/authRoutes');
@@ -6,6 +7,9 @@ const errorHandler = require('./middlewares/errorHandler');
 const sequelize = require('./config/database');
 
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
 
 app.use(express.json());
 
